@@ -2,11 +2,16 @@ const app = require('./server') // Link to your server file
 const supertest = require('supertest')
 const request = supertest(app)
 
+it('Call the /baru endpoint', async ()=> {
+    const res = await request.get('/baru')
+    expect(res.status).toBe(200)
+    expect(res.text).toBe('Hello, baru!')
+})
 
 it('Call the /youtube endpoint', async ()=> {
     const res = await request.get('/youtube')
     expect(res.status).toBe(200)
-    expect(res.text).toBe('Hello, youtube indonesia!x')
+    expect(res.text).toBe('Hello, youtube indonesia!')
 })
 
 it('Call the / endpoint', async () => {
