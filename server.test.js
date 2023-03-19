@@ -2,6 +2,13 @@ const app = require('./server') // Link to your server file
 const supertest = require('supertest')
 const request = supertest(app)
 
+it('Call the /devops endpoint', async ()=> {
+    const res = await request.get('/devops')
+    expect(res.status).toBe(200)
+    expect(res.text).toBe('devops start journey at 19/03/2023')
+})
+
+
 it('Call the /baru endpoint', async ()=> {
     const res = await request.get('/baru')
     expect(res.status).toBe(200)
